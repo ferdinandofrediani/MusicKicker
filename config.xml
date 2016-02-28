@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.music-kicker.app" version="0.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>music-kickerApp</name>
+    <description>
+        Music Kicker Application
+    </description>
+    <author email="ferdifrediani@gmail.com" href="#">
+        Ferdinando Frediani and Richard Margelli
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+   <icon src="www/icone/music_logo_60.png" width="60" height="60" /> 
+     <icon src="www/icone/music_logo_60.png" width="57" height="57" /> 
+	  
+	  
+	   
+	  
+	  
+	     
+	   
+   
+   
+   
+   <feature name="InAppBrowser">
+       <param name="ios-package" value="CDVInAppBrowser" />
+   </feature>
+</widget>

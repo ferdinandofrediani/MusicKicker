@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<head>
+  
+        <head>
+            <!--[if IE]>
+             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+             <![endif]-->
+            <meta charset="utf-8">
+            <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+            <meta name="apple-mobile-web-app-capable" content="yes">
+                <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                    <link rel="apple-touch-icon" href="foto/music_logo.png">
+                        <link rel="apple-touch-startup-image" href="foto/music_logo.png">
+				<link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css"/>
+				<link rel="stylesheet" href="bootstrap/css/framework7.min.css"/>
+				
+               		  	<link rel="stylesheet" href="explore.css"/>
+				<link rel="stylesheet" href="fontello.css"/>
+            
+                   
+                   
+                    </head>
+					
+					<body>
+						
+						<div class="statusbar-overlay"></div>
+						    <!-- Panels overlay-->
+						    <div class="panel-overlay"></div>
+						    <!-- Left panel with reveal effect-->
+						    <div class="panel panel-left panel-reveal">
+						      <div class="content-block">
+								
+						  <div onclick="chooseFile3();" style="height:40px; width:100%;color:#fff; font-size:17px"><i class="fa fa-camera"> </i>&nbsp; Change My Photos</div>
+					  </br> 
+						 
+					 <div onclick="ch()" style="height:40px; width:100%; color:#fff; font-size:17px"><i class="fa fa-refresh"> </i>&nbsp; Update Music Library</div>
+				 </br>
+				 <div onclick="soundK();" style="height:40px; width:100%; color:#fff; font-size:17px"><i class="fa fa-soundcloud"> </i>&nbsp; Link With SoundCloud</div>
+			 </br>
+			 	<div onclick="clearCK();" style="height:40px; width:100%; color:#fff;font-size:17px"><i class="fa fa-sign-out"> </i>&nbsp; Sign Out</div>
+			</br>
+			
+							  </div>
+						    </div>
+						    <!-- Views -->
+						    <div class="views">
+						    
+						      <div class="view view-main">
+						        <!-- Top Navbar-->
+						        <div class="navbar navbar-color" style="border-color:rgba(0,0,0,0);">
+						          <div class="navbar-inner">
+									  <div class="left open-left-panel" style="width:100px; height:60px;">
+										
+						<i class="fa fa-bars open-left-panel" style="font-size:25px;color:#fff; position:relative;left:8px;"></i>
+										            
+									  </div>
+						            <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+						            <div class="center sliding"><img src="foto/logoPH.png" style="width:100px;"></div>
+						            <div class="right">
+						              <!-- 
+						                Right link contains only icon - additional "icon-only" class
+						                Additional "open-panel" class tells app to open panel when we click on this link
+						              -->
+						              <a href="#" class="link icon-only open-panel "><i class="icon icon-bars-blue" ></i></a>
+						            </div>
+						          </div>
+						        </div>
+						        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+						        <div class="pages navbar-through toolbar-through">
+						          <!-- Page, "data-page" contains page name -->
+						          <div data-page="index" class="page page-back">
+						            <!-- Scrollable page content -->
+						            <div class="page-content hide-navbar-on-scroll">
+										<!-- La parte principale che cambia -->
+						              <div id="changeTarget"></div>
+						              <!-- Link to another page -->
+						              
+									  
+						            </div>
+						          </div>
+						        </div>
+						        <!-- Bottom Toolbar-->
+						        <div class="toolbar tabbar toolbar-back" style="border-top: 50px solid transparent;">
+						          <div class="toolbar-inner" style="top: -21px;">
+						            <!-- Toolbar links -->
+									<a onclick="loadPart(0)" class="tab-link active" style="width:80px; height:36px;">
+									            <i class="fa fa-th-large" id="blocco0" style="font-size:26px; width:32; color:#fff;" ></i>
+									        </a>
+									        <a onclick="loadPart(3)" class="tab-link" style="width:80px; height:36px;">
+									            <i class="fa fa-search" id="blocco4" style="width:32; font-size:26px; color:#fff;"></i>
+									        </a>
+									        <a onclick="loadPart(1)" class="tab-link" style="width:80px; height:36px;">
+									            <i class="fa fa-star" id="blocco1" style="width:32; color:#fff; font-size:26px;"></i>
+									        </a>
+									   <!--     <a onclick="loadPart(2)" class="tab-link">
+									           <i class="icon-king" id="blocco2" style="width:32; color:#fff"></i>
+									        </a> -->
+									        <a onclick="loadPart(4)" class="tab-link" style="width:80px; height:36px;">
+									            <i class="fa fa-user" id="blocco3" style="width:32; color:#fff; font-size:26px;";></i>
+									        </a>
+									        
+						          </div>
+						        </div>
+						      
+							  </div>
+							  
+						    </div>
+						
+				<!-- Modal login form -->
+				<div class="login-screen">
+				    <div class="view">
+				      <div class="page">
+				        <div class="page-content login-screen-content modal-back">
+				          <div class="login-screen-title"><img src="foto/logoPH.png" style="width:auto; height:80px;"></div>
+				          <form>
+				            <div class="list-block">
+				              <ul>
+				                <li class="item-content">
+				                  <div class="item-inner">
+				                    <div class="item-title label" style="color:#fff;">Email</div>
+				                    <div class="item-input">
+				                      <input type="text" id="username" placeholder="Your username">
+				                    </div>
+				                  </div>
+				                </li>
+				                <li class="item-content">
+				                  <div class="item-inner">
+				                    <div class="item-title label" style="color:#fff;">Password</div>
+				                    <div class="item-input">
+				                      <input type="password" id="password" placeholder="Your password">
+				                    </div>
+				                  </div>
+				                </li>
+				              </ul>
+				            </div>
+				            <div class="list-block">
+				              <ul>
+				                <li><a href="#" class="item-link list-button" onclick="signIn();">Login</a></li>
+								<li><a href="#" class="item-link list-button" onclick="window.location.href='log.html';">Sign Up</a></li>
+				              </ul>
+				              <div class="list-block-label">
+				                <p>The best app for music</p>
+				                
+				              </div>
+				            </div>
+				          </form>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+						<!-- here it s the popover for loadPart(2) -->
+  <div class="popover popover-how">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+      <div class="content-block">
+        <p>One click on the pic to play music</p>
+		<p>Two click on the pic to vote music</p>
+      </div>
+    </div>
+  </div>
+		<!-- here it s the pop up for genres -->
+  <div class="popover popover-genres">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+      <div class="content-block">
+        <p>Click on a music genre to see who is the best artist in that genre</p>
+		
+      </div>
+    </div>
+  </div>				
+			<!-- generic PopUp -->
+		    <div class="popup popup-generic">
+				<div class="navbar" style="background:transparent; border-bottom:0px;">
+				    <div class="navbar-inner">
+						<div class="left"></div>
+				        <div class="center" style="color:white;">List</div>
+				        <div class="right" id="genericClose"><a href="#" class="close-popup"><p>Close</p></a></div>
+				    </div>
+				</div>
+		       <div class="content-block">
+		       <div id="targetPopup"></div>
+		       </div>
+		     </div>
+						
+						
+                <style>
+                    .pac-container{
+                        z-index:2051;
+                    }
+                    </style>
+					
+				
+                
+        
+            <!-- down here all mustache script for the page -->
+			<!-- Script per le immagini dei generi -->
+            <script id="proGenres" type="x-tml-mustache">
+			<div class="content-block-title" id="kickestGenres"></div>
+			<div class="content-block">
+			
+			
+			<div class="row">
+                <div class="col-50"><img src="foto/square_rock.jpg" onclick="getGenreb(event);" genre="Rock" style="width:150px; height:153px;"></div>
+                <div class="col-50"><img src="foto/square_pop.jpg"  onclick="getGenreb(event);" genre="Pop" style="width:150px; height:153px;"></div>
+			</div>
+			<div class="row">
+                <div class="col-50"><img src="foto/square_hiphop.jpg" onclick="getGenreb(event);" genre="HipHop" style="width:150px; height:153px;"></div>
+                <div class="col-50"><img src="foto/square_jazz.jpg" onclick="getGenreb(event);" genre="Jazz" style="width:150px; height:153px;"></div>
+			</div>
+			<div class="row">
+                    <div class="col-50"><img src="foto/explore_genre_square_classical.png" onclick="getGenreb(event);" genre="Classical" style="width:150px; height:153px;"></div>
+                     <div class="col-50"><img src="foto/explore_genre_square_country.png" onclick="getGenreb(event);" genre="Country" style="width:150px; height:153px;"></div>
+			</div>
+			<div class="row">
+                      <div class="col-50"><img src="foto/explore_genre_square_dance.png" onclick="getGenreb(event);" genre="Dance" style="width:150px; height:153px;"></div>
+                       <div class="col-50"><img src="foto/explore_genre_square_drumnbass.png" onclick="getGenreb(event);" genre="Drum And Bass" style="width:150px; height:153px;"></div>
+			</div>
+			<div class="row">
+                       <div class="col-50"><img src="foto/explore_genre_square_electro.png" onclick="getGenreb(event);" genre="Electro" style="width:150px; height:153px;"></div>
+                       <div class="col-50"><img src="foto/explore_genre_square_edm.png" onclick="getGenreb(event);" genre="Edm" style="width:150px; height:153px;"></div>
+			</div>
+			<div class="row">
+                       <div class="col-50"><img src="foto/explore_genre_square_folk.png" onclick="getGenreb(event);" genre="Folk" style="width:150px; height:153px;"></div>
+                       <div class="col-50"><img src="foto/explore_genre_square_latino.png" onclick="getGenreb(event);" genre="Latino" style="width:150px; height:153px;"></div>
+			</div>
+			<div class="row">
+                       <div class="col-50"><img src="foto/explore_genre_square_metal.png" onclick="getGenreb(event);" genre="Metal" style="width:150px; height:153px;"></div>
+                       <div class="col-50"><img src="foto/explore_genre_square_punk.png" onclick="getGenreb(event);" genre="Punk" style="width:150px; height:153px;"></div>
+			</div>
+			<div class="row">
+                       <div class="col-50"><img src="foto/explore_genre_square_techno.png" onclick="getGenreb(event);" genre="Techno" style="width:150px; height:153px;"></div>
+			<div class="col-50"><img src="foto/explore_genre_square_funk.png" onclick="getGenreb(event);" genre="Funk" style="width:150px; height:153px;"></div>
+			
+			</div>
+			<div class="row">
+                       <div class="col-50"><img src="foto/explore_genre_square_opera.png" onclick="getGenreb(event);" genre="Opera" style="width:150px; height:153px;"></div>
+			<div class="col-50"><img src="foto/explore_genre_square_r&b.png" onclick="getGenreb(event);" genre="R&B" style="width:150px; height:153px;"></div>
+			
+			</div>
+			
+			</div>
+                </script>
+			<!-- who s new script for mustache -->
+                <script id="whosnew" type="x-tml-mustache">
+			<div class="content-block-title" style="text-transform:none;"><p class="got2">Suggested </p><p class="got1"> Artist</p></div>
+<div class="list-block media-list" style="border-color:transparent;">
+  <ul>
+			
+                    {{#who}}
+		
+
+					
+    <li>
+      <a href="#" class="item-link item-content" number="{{email}}" onclick="parsing(event);">
+        <div class="item-media"><img src={{photo_profile}} number="{{email}}"  width="80"></div>
+        <div class="item-inner" number="{{email}}">
+          <div class="item-title-row" number="{{email}}">
+            <div class="item-title" number="{{email}}">{{name_user}}</div>
+           
+          </div>
+          <div class="item-subtitle" number="{{email}}">{{genre_artist}}</div>
+          <div class="item-text" number="{{email}}">{{locality}}, {{country}}, Kick {{kick}}</div>
+        </div>
+      </a>
+    </li>
+   
+
+			
+	
+                    {{/who}}
+</ul>
+					</div>
+                    </script>
+					<!-- new advance research -->
+					<script id="adTemp" type="x-tml-mustache">
+					<div class="row">
+					
+					{{#result}}
+   <div class="col-50" number="{{email}}" onclick="parsing(event);">
+					
+					
+					
+      <div number="{{email}}" src="{{photo_profile}}" style="position:relative; margin-top:15px; background:url({{photo_profile}}) no-repeat 0px / cover transparent ; height:135px; width:135px; border-radius: 0%; -webkit-border-radius: 0%; -moz-border-radius: 0%;" >
+					
+            
+          
+					<div number="{{email}}"  style="position:absolute; top:0px; height:135px; width:135px; border-radius: 0%; -webkit-border-radius: 0%; -moz-border-radius: 0%; background-color: rgba(0, 0, 0, 0.3);">
+					<div >
+					<div class="movedTop">
+					<p class="th"  number="{{email}}" style="font-size:11px; margin-top:1px; margin-bottom:1px; color:#fff; ">{{name_user}}</p>
+					<p class="th"  number="{{email}}" style="font-size:11px; margin-top:1px; margin-bottom:1px; color:#fff; ">{{genre_artist}}</p>
+					<p class="th"  number="{{email}}" style="font-size:11px;  margin-top:1px; margin-bottom:1px; color:#DF2A33; ">{{kick}} Kick</p>
+					<p class="th"  number="{{email}}" style="font-size:11px; margin-top:1px; margin-bottom:1px; color:#fff; ">{{locality}}</p>
+					</div>
+					</div> 
+					</div>
+					
+					</div>
+					
+       
+					
+    </div>
+					{{/result}}
+					
+					</div>
+					</script>
+					<script id="finalChange" type="x-tml-mustache">
+					<div class="content-block" id="jj">
+					<div class="row">
+					
+					
+					
+                <div class="col-50" onclick="handPc1();"><label for="photo_profile"> <div style="background: #CA393E  no-repeat scroll 0px center / cover; width:136px; height:136px;"><img src="foto/u.png" style="margin-left:35px; margin-top:44px;" height="50px"/><input type="file" style="height:0px;overflow:hidden;" id="photo_profile" name="photo_profile"/></div></label>  </div>
+                <div class="col-50" onclick="handPc2();" ><label for="photo_back"> <div style="background: #FFF no-repeat scroll 0px center / cover; width:136px; height:136px;" ><img src="foto/ut.png" height="50px" style="margin-left:43px; margin-top:44px;"/><input type="file" style="height:0px;overflow:hidden;" id="photo_back" name="photo_profile"> </div></label>  </div>
+					
+					</div>
+					</div>
+					</script>
+					                <script id="adSearch" type="x-tml-mustache">
+								<div class="content-block-title" style="text-transform:none;"><p class="got1">FindArtists</p><p class="got2">AroundYou</p></div>
+					<div class="content-block" style="padding: 0px 6px;">
+			<div class="row">
+                <div class="col-50"><div id="location" class="pate" onclick="cg();" ><input id="places" class="inBox" type="text"  /></div></div>
+                <div class="col-50"><div id="gh" class="pate1" ><div id="listTarget"></div></div></div>
+					
+			</div>
+					<a onclick="picked()" class="button"  style="height:60px; border-radius: 0px; color: #FFF; border: 0px solid #FFF; background-color:#DF2A33; font-family:'bebas-neue'; margin:1em 0px;"><p style="font-size:27px; margin-top:17px;">Search</p></a>
+					<div id="adTarget">
+							
+							</div>
+					</div>
+					                    </script>
+					<!-- script listpeople for mustache -->
+					<script id="listgenre" type="x-tml-mustache">
+
+<div class="list-block media-list">
+  <ul>
+					{{#result}}
+    <li>
+					
+<div  class="item-content" number="{{email}}" onclick="parsing(event);">
+        <div class="item-media" number="{{email}}"><img src="{{photo_profile}}" number="{{email}}" style="border-radius: 50%; -webkit-border-radius: 50%; -moz-border-radius: 50%;" width="65" height="65"></div>
+        <div class="item-inner" number="{{email}}" >
+          <div class="item-title-row" number="{{email}}">
+            <div class="item-title" style="font-family:'helveticMd'; font-size:16px; color:white;" number="{{email}}" >{{name_user}}</div>
+          </div>
+          <div class="item-subtitle" style="font-family:'helveticLt'; font-size:14px; color:white;" number="{{email}}">{{genre_artist}}</div>
+        </div>
+      </div>
+    </li>
+					{{/result}}
+  </ul>
+</div>
+					</script>
+					<!-- script for profile -->
+										<script id="profile" type="x-tml-mustache">
+
+					<section>
+					<div class="backBig"><div class="backFilter">
+					
+					<div class="row">
+					<div class="col-33"></div>
+					<div class="col-33" id="popo" style="text-align:center;">
+					<div style="text-align:center;  ">
+					<div id="movLe" style="position:relative;height:100px; width:100px; border-radius:50%; overflow:hidden; margin-top:10px;">
+					<img src="{{personal.photo_profile}}" style="text-align:center;min-height:100px; width:140px;height:auto; border-radius:0%;"/></div>
+					</div></div>
+					<div class="col-33"></div>
+					
+					</div>
+					<a href="mailto:{{personal.email}}"><p class="textB">{{personal.name_user}}</p></a>
+					<a href="mailto:{{personal.email}}"><p class="textS">{{personal.email}}</p></a>
+					 <a href="mailto:{{personal.email}}"><p class="textS">{{personal.genre_artist}}</p></a>
+					
+					<p class="textS">{{personal.country}} {{personal.locality}}</p> 
+					
+					</div></div>
+					<div class="blackPart">
+					<div class="row"></div>
+					<p class="textB" style="text-align: center; margin-top: 0px;
+  padding-top: 10px;">{{personal.kick}}</p>
+					<p class="textS" style="color:#BD2A2D; text-align:center;  margin-top:-13px;">Kick</p>
+					
+					</div>
+					<div class="belowPart">
+					
+	<div class="list-block" style="border-color:transparent;">
+				
+	  <ul>
+					{{#music}}
+	    <li class="item-content">
+	      <div class="item-media">
+					<div style="height:100px; width:100px;">
+					<img src="{{artwork}}" onclick="listen(event);" number="{{id_canzone}}"  style="height: 100%; width: 100%;" />
+					<img src="foto/play_square.png" onclick="listen(event);" number="{{id_canzone}}"  class="overBloc" />
+					</div>
+					</div>
+					<audio id="{{id_canzone}}" preload="none" >
+					<source src="http://api.soundcloud.com/tracks/{{id_canzone}}/stream?client_id=ae0eaab89055e29ff15898fa2886b178" type="audio/mpeg">
+					</audio>
+					
+	      <div class="item-inner">
+					<div class="item-title fontes"><h6>{{title}}</h6></div>
+	        <div class="item-after"><div number="{{id_canzone}}" onclick="vote(event);" style="width: 70px; height: 70px; position: relative; top: -25px;"><i class="fa fa-heart" number="{{id_canzone}}" onclick="vote(event);" style="width: 30px; position: relative; top: 32%; left: 27%; font-size:30px; color:white;"></i></div>
+	</div>
+					
+	      </div>
+	    </li>
+    				
+					{{/music}}
+					</ul>
+					
+					</div>
+					</section>
+										</script>
+					<script id="photoTr" type="x-tml-mustache">
+					
+					
+					<input type="file" style="height:100px;" id="photo_profile" name="photo_profile">
+					</br>
+					</br>
+					<button class="button" onclick="sendIt();">Send</button>
+						
+					
+					</script>
+					
+					<script id="photoPr" type="x-tml-mustache">
+					
+					
+					<input type="file" style="height:100px;" id="photo_back" name="photo_profile">
+					</br>
+					</br>
+					<button class="button" onclick="sendIt2();">Send</button>
+						
+					
+					</script>
+				<!-- script new music for mustache -->	
+	                <script id="newmusic" type="x-tml-mustache">
+				
+				
+				<div class="content-block-title" style="text-transform:none;"><p class="got2">Top </p><p class="got1"> Kicked</p></div>
+
+<div class="list-block" style="border-color:transparent;">
+				
+  <ul>
+				{{#music}}
+    <li class="item-content">
+				
+      <div class="item-media">
+				<div style="height:100px; width:100px;">
+				<img src="{{artwork}}" onclick="listen(event);" number="{{id_canzone}}"  style="height: 100%; width: 100%;" />
+				<img src="foto/play_square.png" onclick="listen(event);" number="{{id_canzone}}"  class="overBloc" />
+				</div>
+				</div>
+				<audio id="{{id_canzone}}" preload="none" >
+				<source src="http://api.soundcloud.com/tracks/{{id_canzone}}/stream?client_id=ae0eaab89055e29ff15898fa2886b178" type="audio/mpeg">
+				</audio>
+      <div class="item-inner">
+				<div class="item-title fontes"><h6>{{title}}</h6></div>
+        <div class="item-after"><div number="{{id_canzone}}" onclick="vote(event);" style="width: 70px; height: 70px; position: relative; top: -25px;"><img src="foto/heart.png" number="{{id_canzone}}" onclick="vote(event);" style="width: 30px; position: relative; top: 32%; left: 27%;"></div></i>
+</div>
+      </div>
+    </li>
+    
+				{{/music}}
+				</ul>
+				</div>
+				
+						
+	                    </script>
+				<!-- -->
+				<script id="blockMustachGenre" type="x-tml-mustache">
+
+
+<div class="list-block" style="margin:0px;">
+  <ul>
+    <!-- Smart select item -->
+    <li>
+      <!-- Additional "smart-select" class -->
+      <a href="#" class="item-link smart-select">
+        <!-- select -->
+        <select name="genre" id="genreSelection">
+				<option selected="selected" value="0">No Genre</option>
+         	   <option value="Pop">Pop</option>
+          	  	<option value="Rock">Rock</option>
+         	   		<option value="HipHop">Hip Hop</option>
+				 <option value="Jazz">Jazz</option>
+				 <option value="Classical">Classical</option>
+				 <option value="Country">Country</option>
+				 <option value="Dance">Dance</option>
+				 <option value="Drum And Bass">Drum And Bass</option>
+        		<option value="Electro">Electro</option>
+				<option value="Edm">Edm</option>
+				<option value="Folk">Folk</option>
+				<option value="Latino">Latino</option>
+				<option value="Metal">Metal</option>
+				<option value="Punk">Punk</option>
+				<option value="Techno">Techno</option>
+				<option value="Funk">Funk</option>
+				<option value="Opera">Opera</option>
+				<option value="R&B">R&B/Soul</option>
+		</select>
+        <div class="item-content">
+          <div class="item-inner" style="height: 153px;">
+            <!-- Select label -->
+            <div class="item-title bv" style="top:55px;">Genre</div>
+            <!-- Selected value, not required -->
+            <div class="item-after" style="top:55px; left:-21px"></div>
+          </div>
+        </div>
+      </a>
+    </li>
+    
+  </ul>
+</div>   
+		<!--		<p><a onclick="picked()" class="button">Search</a></p> -->
+						</script>
+						<!-- script for research part -->
+						<script id="newSearch" type="x-tml-mustache">
+						<div class="content-block-title">Search by location</div>
+							<form class="searchbar" data-search-list=".list-block-search" data-search-in=".item-title" data-searchbar-found=".searchbar-found" data-searchbar-not-found=".searchbar-not-found">
+        <div class="searchbar-input">
+            <input type="search" placeholder="Search" id="places">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">Cancel</a>
+    </form>
+						<div id="listTarget"></div>
+						  <!-- 
+						    <div class="row" style="position:relative; top:20px;">
+						    <div class="col" style="margin-left:5px;">
+    
+    
+    
+						    <button class="btn btn-default btn-lg dropdown-toggle bottoni" data-toggle="dropdown" style="margin-left:25%;" ><div id="changeTarget"></div></button>
+						    <ul class="dropdown-menu" role="menu">
+						    <li><a href="#Pop" onclick="getGenre(event);" genre="Pop">Pop</a></li>
+						    <li><a href="#Hip Hop" onclick="getGenre(event);" genre="Hip Hop">Hip Hop</a></li>
+						    <li><a href="#Jazz" onclick="getGenre(event);" genre="Jazz">Jazz</a></li>
+						    <li><a href="#Rock" onclick="getGenre(event);" genre="Rock">Rock</a></li>
+						    </ul>
+    
+						    <div class="input-group" style="padding-top: 20px; padding-left:20px;" >
+    
+						    <span class="input-group-btn">
+    
+						    <button class="btn btn-default dropdown-toggle bottoni" data-toggle="dropdown"   ><div id="placeTarget"></div></button>
+						    <ul class="dropdown-menu" role="menu">
+						    <li><a href="#locality" onclick="getKind(event);" place="city">City</a></li>
+    
+						    <li><a href="#region" onclick="getKind(event);" place="region">Region</a></li>
+    
+						    <li><a href="#country" onclick="getKind(event);" place="country">Country</a></li>
+    
+						    </ul>
+						    </span>
+    
+						    <input type="text"class="form-control bottoni " style="width:185px;" id="autocomplete2" placeholder="Pick a Place"></input>
+    
+						    </div>
+    
+    
+						    </div>
+						    <img class="send" src="foto/button_search.jpg" onclick="send();"></img>
+    
+						    </div>
+						-->
+						    </script>
+						
+						<script id="myPage" type="text/template">
+						<!-- Top Navbar-->
+						        <div class="navbar">
+						          <div class="navbar-inner">
+						            <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+						            <div class="center sliding"></div>
+						          </div>
+							</div>
+						        <div class="pages">
+						          <!-- Page, data-page contains page name-->
+						          <div data-page="dynamic-pages" class="page page-back">
+						            <!-- Scrollable page content-->
+						            <div class="page-content">
+						            
+										   <div id="loadPag"></div>
+						        
+						                
+						              
+						            </div>
+						          </div>
+							</div>
+						</script>
+			<!-- now they are done -->
+			<script type="text/javascript" src="cordova.js"></script>
+			<script type="text/javascript" src="js/index.js"></script>
+			<script>
+			app.initialize();
+			</script>
+			
+				
+			
+             <script type="text/javascript" src="bootstrap/js/framework7.js"></script>
+			
+               <script type="text/javascript" src="js/soundcloudSdk.js"></script>  
+               <script type="text/javascript" src="bootstrap/js/mustache.js"></script>
+                 <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
+			  <script type="text/javascript" src="js/socket.io-1.0.3.js"></script>
+			  <script type="text/javascript" src="bootstrap/js/jso.js"></script>
+			  <script type="text/javascript" src="bootstrap/js/exploreProva.js"></script>
+			  <script type="text/javascript" src="bootstrap/js/JIC.js"></script>
+            <!--    <script src="http://music-kicker.herokuapp.com/socket.io/socket.io.js"></script> -->
+				
+			
+            
+                            </body>
+				           
+</html>
+    
